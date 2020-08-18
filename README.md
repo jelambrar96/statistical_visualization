@@ -207,7 +207,7 @@ sns.pairplot(df, hue="species")
 
 
 
-    <seaborn.axisgrid.PairGrid at 0x7fd971ec4fd0>
+    <seaborn.axisgrid.PairGrid at 0x7f1043a24860>
 
 
 
@@ -346,6 +346,10 @@ grid.set(xticks=np.arange(5), yticks=[-3, 3],
 grid.fig.tight_layout(w_pad=1)
 ```
 
+
+![png](statistical_visualization_files/statistical_visualization_25_0.png)
+
+
 # Task 4: Statistical Visualization with Plotly
 
 Creating Box Plots
@@ -408,6 +412,10 @@ plt.setp(axes, xticks=[y+1 for y in range(len(all_data))],
 plt.show()
 ```
 
+
+![png](statistical_visualization_files/statistical_visualization_36_0.png)
+
+
 Creating Error Bars
 
 
@@ -423,6 +431,10 @@ fig, ax = plt.subplots()
 ax.errorbar(x, y, xerr=0.2, yerr=0.4)
 plt.show()
 ```
+
+
+![png](statistical_visualization_files/statistical_visualization_38_0.png)
+
 
 Creating histograms for cumulative distribution
 
@@ -448,9 +460,7 @@ n, bins, patches = ax.hist(x, n_bins, density=1, histtype='step',
 
 # Add a line showing the expected distribution.
 # y = mlab.normpdf(bins, mu, sigma).cumsum()
-print(bins)
-# y = norm.pdf(bins, mu, sigma).cumsum()
-y = ((y - mu) / sigma).cumsum()
+y = norm.pdf(bins, mu, sigma).cumsum()
 y /= y[-1]
 
 ax.plot(bins, y, 'k--', linewidth=1.5, label='Theoretical')
@@ -469,6 +479,10 @@ ax.set_ylabel('Likelihood of occurrence')
 plt.show()
 ```
 
+
+![png](statistical_visualization_files/statistical_visualization_40_0.png)
+
+
 Creating Violin Plots
 
 
@@ -482,11 +496,12 @@ fs = 10  # fontsize
 pos = [1, 2, 4, 5, 7, 8]
 data = [np.random.normal(0, std, size=100) for std in pos]
 
-fig, axes = plt.subplots(nrows=2, ncols=3, figsize=(6, 6))
+fig, axes = plt.subplots(nrows=2, ncols=3, figsize=(12, 12))
 
 axes[0, 0].violinplot(data, pos, points=20, widths=0.3,
                       showmeans=True, showextrema=True, showmedians=True)
 axes[0, 0].set_title('Custom violinplot 1', fontsize=fs)
+axes[0, 0].set_title(True)
 
 axes[0, 1].violinplot(data, pos, points=40, widths=0.5,
                       showmeans=True, showextrema=True, showmedians=True,
@@ -518,6 +533,10 @@ fig.suptitle("Violin Plotting Examples")
 fig.subplots_adjust(hspace=0.4)
 plt.show()
 ```
+
+
+![png](statistical_visualization_files/statistical_visualization_42_0.png)
+
 
 # Congratulations! You are now able to create amazing plots and visualize any type of data in your own Machine Learning Projects!¶
 
